@@ -14,5 +14,6 @@ namespace CardGame
         // saved list --> duplicate of list for end reveal
         public List<Card> handSave = new List<Card>();
 
+
     }
 }

@@ -28,15 +28,5 @@ namespace CardGame
         {
             return _suit;
         }
-
-        //setters
-        public void setValue(int value)
-        {
-            _cardValue = value;
-        }
-        public void setSuit(int suit) 
-        { 
-            _suit = suit;
-        }
     }
 }

@@ -16,7 +16,6 @@ namespace CardGame
         public void createDeck()
         {
             int arrayIndex = 0;
-            Console.WriteLine("work");
 
             for (int i = 0; i <= 3; i++) // suits
             { 
@@ -28,10 +27,26 @@ namespace CardGame
             }
         }
 
-        // fill the computer players hand with random 13 cards
-        public void deal()
+        // fill the computer players hand with random X cards
+        public List<Card> deal(int numOfCards)
         {
-            // generate 13 random numbers with no repeats
+            HashSet<int> numbers = new HashSet<int>();  // HashSets have no duplicates
+            List<Card> cards = new List<Card>();
+            Random rand = new Random();     // instantiate random num gen
+
+            // generate X random nums
+            while (numbers.Count < numOfCards)
+            {
+                numbers.Add(rand.Next(0, deck.Length - 1));
+            }
+
+            // add X cards to a List
+            foreach (int num in numbers)
+            {
+                cards.Add(deck[num]);
+            }
+
+            return cards;   // return List of cards
         }
     }
 }
