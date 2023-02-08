@@ -1,4 +1,8 @@
-﻿namespace LucasNumbers
+﻿/**************************************
+ * Name: Ivu
+ * Date: 2/8/2023
+***************************************/
+namespace LucasNumbers
 {
     internal class Program
     {
