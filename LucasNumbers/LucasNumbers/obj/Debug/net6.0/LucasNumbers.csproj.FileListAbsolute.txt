@@ -1,0 +1,15 @@
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\bin\Debug\net6.0\LucasNumbers.exe
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\bin\Debug\net6.0\LucasNumbers.deps.json
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\bin\Debug\net6.0\LucasNumbers.runtimeconfig.json
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\bin\Debug\net6.0\LucasNumbers.dll
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\bin\Debug\net6.0\LucasNumbers.pdb
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\LucasNumbers.csproj.AssemblyReference.cache
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\LucasNumbers.GeneratedMSBuildEditorConfig.editorconfig
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\LucasNumbers.AssemblyInfoInputs.cache
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\LucasNumbers.AssemblyInfo.cs
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\LucasNumbers.csproj.CoreCompileInputs.cache
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\LucasNumbers.dll
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\refint\LucasNumbers.dll
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\LucasNumbers.pdb
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\LucasNumbers.genruntimeconfig.cache
+E:\College\Data_Structures\DataStructures_CardGame\LucasNumbers\LucasNumbers\obj\Debug\net6.0\ref\LucasNumbers.dll
