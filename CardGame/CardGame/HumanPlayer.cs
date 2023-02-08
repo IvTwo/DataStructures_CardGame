@@ -11,6 +11,7 @@ namespace CardGame
         // variables
         public static int numOfQuestions;
         public static int numOfGuesses;
+        public static int points;
 
         public static void Guess()
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Namespace;
 
 namespace CardGame
 {
@@ -49,14 +50,21 @@ namespace CardGame
             // correct guess
             if(values.Count > 0) 
             {
+                HumanPlayer.points++;
                 Console.WriteLine("---");
                 Console.WriteLine("You guesed a card correctly!");
-                Console.WriteLine("Removing the " + value + " of " + (Suits)suits);
+                Console.WriteLine("Removing the " + (Value)value + " of " + (Suits)suit);
+
+                // remove card
+                hand.Remove(values[0]);
             }
             else    // wrong guess
             {
-
+                Console.WriteLine("---");
+                Console.WriteLine("You guessed Incorrectly :(");
+                Console.WriteLine("There was no " + (Value)value + " of " + (Suits)suit);
             }
+            HumanPlayer.numOfGuesses--;
         }
 
         //public int numOfCardsForAValue()
