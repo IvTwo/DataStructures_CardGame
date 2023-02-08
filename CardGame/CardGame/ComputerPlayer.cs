@@ -41,6 +41,24 @@ namespace CardGame
             return total;
         }
 
+        public static void GuessCard(int suit, int value)
+        {
+            List<Card> suits = hand.FindAll(x => x.getSuit().Equals(suit));
+            List<Card> values = suits.FindAll(x => x.getValue().Equals(value));
+
+            // correct guess
+            if(values.Count > 0) 
+            {
+                Console.WriteLine("---");
+                Console.WriteLine("You guesed a card correctly!");
+                Console.WriteLine("Removing the " + value + " of " + (Suits)suits);
+            }
+            else    // wrong guess
+            {
+
+            }
+        }
+
         //public int numOfCardsForAValue()
         //{
         //    return;

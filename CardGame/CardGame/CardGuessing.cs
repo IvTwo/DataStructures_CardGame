@@ -36,6 +36,8 @@ namespace CardGame
             bool keepGoing = true;
             while (keepGoing)
             {
+                // if number of guesses == 0 end the program
+
                 Console.WriteLine();
                 Console.WriteLine("Welcome to the Card Guessing Game----!");
                 Console.WriteLine("Num of Guesses Remaining: " + HumanPlayer.numOfGuesses);
@@ -47,7 +49,7 @@ namespace CardGame
                 {
                     case "1":
                         if (HumanPlayer.numOfQuestions > 0)
-                            userQuestions();
+                            UserQuestions();
                         else
                         {
                             Console.WriteLine("---");
@@ -68,9 +70,13 @@ namespace CardGame
                         break;
                 }
             }
+
+            // once the program is has ended, display total # of correct guesses
+            // display the computers hand
+            // thank you message
         }
 
-        public static void userQuestions()
+        public static void UserQuestions()
         {
             bool didQuit = false;
 
@@ -131,6 +137,56 @@ namespace CardGame
 
             if (!didQuit)
                 HumanPlayer.AskQuestion(); // -1
+        }
+
+        public static void UserGuess()
+        {
+            // guess the suit
+            Console.WriteLine("---");
+            Console.WriteLine("Guess a Card! (Suit + Card Value)");
+            Console.WriteLine("Please select a suit:");
+            Console.WriteLine("\t1. Clubs\n"
+                            + "\t2. Spades\n"
+                            + "\t3. Hearts\n"
+                            + "\t4. Diamonds\n"
+                            + "\t5. Back to Main Menu\n");
+            int uInputSuit = int.Parse(userInput()) - 1;    // convert input to int
+            // input validation
+            if (uInputSuit == 4)
+            {
+                return; //so guesses aren't taken away
+                             // nothing, go back to beggining
+            }
+            else if (uInputSuit > 4 || uInputSuit < 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid Input!");
+                return;
+            }
+
+            // guess the value
+            Console.WriteLine("How many cards of ___ value are there?");
+            Console.WriteLine("Please input a value between 2-14 (NOTE: 11 = J, 12 = K, 13 = Q, 14 = A)");
+            Console.WriteLine("To go to main menu input 15");
+            Console.WriteLine();
+            int uInputValue = int.Parse(userInput()) - 1;    // convert input to int
+            // input valiation
+            if (uInputValue == 14)
+            {
+                return; //so guesses aren't taken away
+                             // nothing, go back to beggining
+            }
+            else if (uInputValue > 14 || uInputValue < 1)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid Input!");
+                return;
+            }
+
+            // handle the guess
+            // say if right or wrong
+            // if right, remove card from hand
+            // subtract one from # of guesses
         }
 
         public static bool InputHandler1(int uInput)
