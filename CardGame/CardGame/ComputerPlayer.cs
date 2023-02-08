@@ -21,6 +21,26 @@ namespace CardGame
             return suits.Count;
         }
 
+        public static int NumOfValueCards(int userInput) 
+        {
+            List<Card> values = hand.FindAll(x => x.getValue().Equals(userInput));
+
+            return values.Count;
+        }
+
+        public static int TotalValueForSuit(int userInput)
+        {
+            int total = 0;
+            List<Card> suits = hand.FindAll(x => x.getSuit().Equals(userInput));
+
+            foreach (Card suit in suits) 
+            { 
+                total += suit.getValue();
+            }
+
+            return total;
+        }
+
         //public int numOfCardsForAValue()
         //{
         //    return;

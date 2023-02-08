@@ -22,7 +22,7 @@ namespace CardGame
 
             // set up human player
             HumanPlayer.numOfGuesses = 5;
-            HumanPlayer.numOfQuestions = 1;
+            HumanPlayer.numOfQuestions = 3;
 
             // set up computer player
             ComputerPlayer.hand.AddRange(game.deal(13));
@@ -72,6 +72,8 @@ namespace CardGame
 
         public static void userQuestions()
         {
+            bool didQuit = false;
+
             Console.WriteLine("---");
             Console.WriteLine("Ask the Computer:  ");
             Console.WriteLine("\t1. How many cards of a specific suit?\n"
@@ -91,30 +93,17 @@ namespace CardGame
                                     + "\t4. Diamonds\n"
                                     + "\t5. Back to Main Menu\n");
                     int uInput = int.Parse(userInput()) - 1;    // convert input to int
-
-                    if (uInput == 4)
-                    {
-                        // nothing, go back to beggining
-                    }
-                    else if (uInput > 5)
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Invalid Input!");
-                        userInput();
-                    }
-                    else
-                    {
-                        int num = ComputerPlayer.NumOfCardsForASuit(uInput);
-                        Console.WriteLine("");
-                        Console.WriteLine("The Computer's hand contains: " + num + " " + (Suits)uInput);
-                    }
+                    didQuit = InputHandler1(uInput);
                     break;
 
                 case "2":
                     Console.WriteLine("---");
                     Console.WriteLine("How many cards of ___ value are there?");
-                    Console.WriteLine("Please input a value:\n" 
-                                    + "(NOTE: 11 = J, 12 = K, 13 = Q, 14 = A");
+                    Console.WriteLine("Please input a value between 2-14 (NOTE: 11 = J, 12 = K, 13 = Q, 14 = A)");
+                    Console.WriteLine("To go to main menu input 15");
+                    Console.WriteLine();
+                    uInput = int.Parse(userInput()) - 1;    // convert input to int
+                    didQuit = InputHandler2(uInput);
                     break;
 
                 case "3":
@@ -125,7 +114,9 @@ namespace CardGame
                                     + "\t2. Spades\n"
                                     + "\t3. Hearts\n"
                                     + "\t4. Diamonds\n"
-                                    + "\t5. Back\n");
+                                    + "\t5. Back to Main Menu\n");
+                    uInput = int.Parse(userInput()) - 1;    // convert input to int
+                    didQuit = InputHandler3(uInput);
                     break;
 
                 case "4":
@@ -137,7 +128,78 @@ namespace CardGame
                     userInput();
                     break;
             }
-            HumanPlayer.AskQuestion(); // -1
+
+            if (!didQuit)
+                HumanPlayer.AskQuestion(); // -1
+        }
+
+        public static bool InputHandler1(int uInput)
+        {
+            if (uInput == 4)
+            {
+                return true; //so guesses aren't taken away
+                                // nothing, go back to beggining
+            }
+            else if (uInput > 4 || uInput < 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid Input!");
+                return true;
+            }
+            else
+            {
+                int num = ComputerPlayer.NumOfCardsForASuit(uInput);
+                Console.WriteLine("");
+                Console.WriteLine("The Computer's hand contains: " + num + " " + (Suits)uInput);
+            }
+
+            return false;
+        }
+
+        public static bool InputHandler2(int uInput)
+        {
+            if (uInput == 14)
+            {
+                return true; //so guesses aren't taken away
+                             // nothing, go back to beggining
+            }
+            else if (uInput > 14 || uInput < 1)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid Input!");
+                return true;
+            }
+            else
+            {
+                int num = ComputerPlayer.NumOfValueCards(uInput);
+                Console.WriteLine("");
+                Console.WriteLine("The Computer's hand contains: " + num + " " + (uInput + 1) + "'s");
+            }
+
+            return false;
+        }
+
+        public static bool InputHandler3(int uInput)
+        {
+            if (uInput == 4)
+            {
+                return true; //so guesses aren't taken away
+                             // nothing, go back to beggining
+            }
+            else if (uInput > 4 || uInput < 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid Input!");
+                return true;
+            }
+            else
+            {
+                int num = ComputerPlayer.TotalValueForSuit(uInput);
+                Console.WriteLine("");
+                Console.WriteLine("The total value of "+ (Suits)uInput + "'s is: " + num);
+            }
+
+            return false;
         }
 
         // return the user input
