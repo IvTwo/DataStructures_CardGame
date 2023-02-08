@@ -16,10 +16,7 @@ namespace CardGame
 
         public static int NumOfCardsForASuit(int userInput)
         {
-            Console.WriteLine("test");
-            hand.ForEach(x => Console.WriteLine(x.getSuit()));
             List<Card> suits = hand.FindAll(x => x.getSuit().Equals(userInput));
-            suits.ForEach(x => Console.WriteLine(x.getSuit()));
 
             return suits.Count;
         }

@@ -20,6 +20,11 @@ namespace CardGame
             GameManager game = new GameManager();
             game.createDeck();
 
+            // set up human player
+            HumanPlayer.numOfGuesses = 5;
+            HumanPlayer.numOfQuestions = 1;
+
+            // set up computer player
             ComputerPlayer.hand.AddRange(game.deal(13));
             ComputerPlayer.handSave = ComputerPlayer.hand;    // copy hand values for later use
 
@@ -33,13 +38,21 @@ namespace CardGame
             {
                 Console.WriteLine();
                 Console.WriteLine("Welcome to the Card Guessing Game----!");
+                Console.WriteLine("Num of Guesses Remaining: " + HumanPlayer.numOfGuesses);
+                Console.WriteLine("Num of Questions Remaining: " + HumanPlayer.numOfQuestions);
                 Console.WriteLine();
                 Console.WriteLine("\t1. Query\n" + "\t2. Guess\n" + "\t3. Quit\n");
 
                 switch(userInput()) // handle user input
                 {
                     case "1":
-                        userQuestions();
+                        if (HumanPlayer.numOfQuestions > 0)
+                            userQuestions();
+                        else
+                        {
+                            Console.WriteLine("---");
+                            Console.WriteLine("You're out of Questions!!");
+                        }
                         break;
                    
                     case "2":
@@ -124,6 +137,7 @@ namespace CardGame
                     userInput();
                     break;
             }
+            HumanPlayer.AskQuestion(); // -1
         }
 
         // return the user input

@@ -6,26 +6,36 @@ using System.Threading.Tasks;
 
 namespace CardGame
 {
-    internal class HumanPlayer
+    internal static class HumanPlayer
     {
         // variables
-        private int _numOfQuestions;
-        private int _numOfGuesses;
+        public static int numOfQuestions;
+        public static int numOfGuesses;
 
-        public HumanPlayer(int numOfQuestions, int numOfGuesses)
+        public static void Guess()
         {
-            this._numOfQuestions = numOfQuestions;
-            this._numOfGuesses= numOfGuesses;
+            numOfGuesses--;
         }
 
-        // getters
-        public int getNumofQuestions()
+        public static void AskQuestion()
         {
-            return _numOfQuestions;
+            numOfQuestions--;
         }
-        public int getNumberOfGuesses() 
-        {
-            return _numOfGuesses;
-        }
+
+        //public HumanPlayer(int numOfQuestions, int numOfGuesses)
+        //{
+        //    this._numOfQuestions = numOfQuestions;
+        //    this._numOfGuesses= numOfGuesses;
+        //}
+
+        //// getters
+        //public int getNumofQuestions()
+        //{
+        //    return _numOfQuestions;
+        //}
+        //public int getNumberOfGuesses() 
+        //{
+        //    return _numOfGuesses;
+        //}
     }
 }
