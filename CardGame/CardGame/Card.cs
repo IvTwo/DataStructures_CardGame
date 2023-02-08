@@ -8,6 +8,14 @@ namespace CardGame
 {
     internal class Card
     {
+        /****************
+         * KEY
+         * 1 = Clubs
+         * 2 = Spades
+         * 3 = Hearts
+         * 4 = Diamonds
+         ***************/
+
         // variables to hold card data
         private int _cardValue;
         private int _suit;
