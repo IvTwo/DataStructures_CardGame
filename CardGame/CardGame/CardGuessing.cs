@@ -1,7 +1,17 @@
-﻿/**************************************
+﻿/**************************************************************
  * Name: Ivu
  * Date: 2/1/2023
-***************************************/
+ * 
+ * Time Complexity for this Algorithim:
+ * (drop all the O(1) elements because they are insignificant)
+ * The first part of the algorithm in all O(1)
+ * Then in the user interface there's a while loop which is O(n)
+ *   Inside the while loop is a which statement which is O(n)
+ *     Inside the switch statement the most intensive part
+ *     is the FindAll<T> O(n)
+ *     
+ * So the final time complexity is = O(1) + (O(n)^3) == O(n^3)
+***************************************************************/
 using Namespace;
 namespace CardGame
 {
@@ -9,39 +19,38 @@ namespace CardGame
     {
         static void Main(string[] args)
         {
+            // --- from here time complexity is O(1)
+
             // run main program setup
             GameManager game = new GameManager();
             game.createDeck();
 
             // set up human player
-            HumanPlayer.numOfGuesses = 1;   //5
-            HumanPlayer.numOfQuestions = 3; //7
+            HumanPlayer.numOfGuesses = 5;   //5
+            HumanPlayer.numOfQuestions = 7; //7
 
             // set up computer player
             ComputerPlayer.hand.AddRange(game.deal(1));
             ComputerPlayer.handSave =
                    ComputerPlayer.hand.Select(card => new Card(card.getValue(), card.getSuit())).ToList();   // copy hand values for later use
 
-            Console.WriteLine(ComputerPlayer.handSave[0].getSuit());
-            Console.WriteLine(ComputerPlayer.handSave[0].getValue());
-
-            Console.WriteLine(ComputerPlayer.hand[0].getSuit());
-            Console.WriteLine(ComputerPlayer.hand[0].getValue());
-
+            // Time complexity: O(n^3)
             userInterface();    // call UI
         }
 
         public static void userInterface()
         {
             bool keepGoing = true;
-            while (keepGoing)
+            while (keepGoing)   // O(n) * the nested switch statement O(n^2) == O(n^3)
             {
+                // O(1)
                 if (HumanPlayer.numOfGuesses == 0)
                 {
                     EndGame();
                     return;
                 }
 
+                // O(1)
                 Console.WriteLine();
                 Console.WriteLine("Welcome to the Card Guessing Game----!");
                 Console.WriteLine("Num of Guesses Remaining: " + HumanPlayer.numOfGuesses);
@@ -50,6 +59,7 @@ namespace CardGame
                 Console.WriteLine();
                 Console.WriteLine("\t1. Query\n" + "\t2. Guess\n" + "\t3. Quit\n");
 
+                // O(n) * inside each is O(n) for FindAll<T>  == O(n^2)
                 switch(UserInput()) // handle user input
                 {
                     case "1":

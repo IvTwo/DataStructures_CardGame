@@ -1,4 +1,4 @@
-﻿/**************************************
+﻿/************************************************************
  * Name: Ivu
  * Date: 2/8/2023
  * 
@@ -9,16 +9,26 @@
      * if n = 1 --> 1
      * if n > 1 --> L(n-1) + L(n-2)
 * }
-***************************************/
+* 
+* Time Complexity for this algorithm:
+* Since there's no input for this program the time compexity
+* would be O(1).
+* 
+* If we wanted to say the user inputs 20 as the value of numbers
+* to find the time complexity would be O(n)
+*************************************************************/
 namespace LucasNumbers
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            // First part O(1)
             Console.Write("The first 20 odd Lucas Numbers are: ");
             int count = 0;
             int i = 0;
+
+            // ---
             // find the first 20 ODD lucas numbers
             while(count < 20)
             {
