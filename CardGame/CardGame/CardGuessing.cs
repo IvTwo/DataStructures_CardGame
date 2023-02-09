@@ -30,7 +30,7 @@ namespace CardGame
             HumanPlayer.numOfQuestions = 7; //7
 
             // set up computer player
-            ComputerPlayer.hand.AddRange(game.deal(1));
+            ComputerPlayer.hand.AddRange(game.deal(13));
             ComputerPlayer.handSave =
                    ComputerPlayer.hand.Select(card => new Card(card.getValue(), card.getSuit())).ToList();   // copy hand values for later use
 
