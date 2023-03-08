@@ -1,0 +1,5 @@
+E:\College\Data_Structures\LucasNums\exe\LucasNumbers.exe
+E:\College\Data_Structures\LucasNums\exe\LucasNumbers.dll
+E:\College\Data_Structures\LucasNums\exe\LucasNumbers.deps.json
+E:\College\Data_Structures\LucasNums\exe\LucasNumbers.runtimeconfig.json
+E:\College\Data_Structures\LucasNums\exe\LucasNumbers.pdb
